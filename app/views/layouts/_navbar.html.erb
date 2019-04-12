@@ -1,7 +1,7 @@
 <ul class="nav nav tabs">
-  <li><%= link_to "Choose4me", welcome_index_path %></li>
-  <li><%= link_to "About", welcome_about_path %></li>
-  <li><%= link_to "Index", welcome_index_path %></li>
+  <li><%= link_to "Choose4me", root_path %></li>
+  <li><%= link_to "About", about_path %></li>
+  <li><%= link_to "Categories", categories_path %></li>
   <div class="pull-right user-nav-links">
     <% if user_signed_in? %>
        <li class = "signed-in">Signed in as: <strong><%= current_user.email %></strong> </li>
