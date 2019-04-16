@@ -1,5 +1,8 @@
 <h1>Categories</h1>
 
+
+<%= link_to "New Category", new_category_path(@category), class: 'btn btn-success' %>
+
 <% @categories.each do |category| %>
     <div class= "media">
       <div class="media-body">

@@ -18,19 +18,19 @@ RSpec.describe CategoriesController, type: :controller do
 
   describe "GET show" do
     it "returns http success" do
-# #16
+
       get :show, params: { id: my_category.id }
       expect(response).to have_http_status(:success)
     end
     it "renders the #show view" do
-# #17
+
       get :show, params: { id: my_category.id }
       expect(response).to render_template :show
     end
 
     it "assigns my_category to @category" do
       get :show, params: { id: my_category.id }
-# #18
+
       expect(assigns(:category)).to eq(my_category)
     end
   end
@@ -51,23 +51,22 @@ RSpec.describe CategoriesController, type: :controller do
       expect(assigns(:category)).not_to be_nil
     end
   end
-   # these tests are not passing..
-  # describe "POST create" do
-  #
-  #   it "increases the number of Post by 1" do
-  #     expect{ category :create, params: { category: { title: "Rando" } } }.to change(Category,:count).by(1)
-  #   end
-  #
-  #   it "assigns the new category to @category" do
-  #     category :create, params: { category: { title: "Rando" } }
-  #     expect(assigns(:category)).to eq Category.last
-  #   end
-  #
-  #   it "redirects to the new category" do
-  #     category :create, params: { category: { title: "Rando" } }
-  #     expect(response).to redirect_to Category.last
-  #   end
-  # end
+
+  describe "POST create" do
+    it "increases the number of Post by 1" do
+      expect{ post :create, params: { category: { title: "Rando" } } }.to change(Category,:count).by(1)
+    end
+
+    it "assigns the new category to @category" do
+      post :create, params: { category: { title: "Rando" } }
+      expect(assigns(:category)).to eq Category.last
+    end
+
+    it "redirects to the new category" do
+      post :create, params: { category: { title: "Rando" } }
+      expect(response).to redirect_to Category.last
+    end
+  end
 
 
    describe "GET #edit" do

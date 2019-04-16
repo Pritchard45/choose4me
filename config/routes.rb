@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :categories
-  resources :options
+  resources :categories do
+    resources :options, except: [:index]
+  end
 
 
   get 'about' => 'welcome#about'

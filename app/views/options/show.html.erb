@@ -1,11 +1,15 @@
-<h1> Options </h1>
+<h1> <%= @option.title %> </h1>
 
-<% @options.each do |option| %>
-    <div class= "media">
-      <div class="media-body">
-        <h4 class="media-heading"?
-          <%= link_to option.title, option %>
-        </h4>
+
+  <div class= "row">
+      <div class="cold-md-8">
+        <ul>
+          <li><%= @option.body %></li>
+          <li><%= @option.website %></li>
+        </ul>
       </div>
-    </div>
-<% end %>
+      <div class="col-md-4">
+          <%= link_to "Edit", edit_category_option_path(@option.category, @option), class: 'btn btn-success' %>
+          <%= link_to "Delete Option", [@option.category, @option], method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this option?' } %>
+      </div>
+  </div>

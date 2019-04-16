@@ -1,2 +1,26 @@
-<h1>Options#edit</h1>
-<p>Find me in app/views/options/edit.html.erb</p>
+<h1> Edit Option</h1>
+
+<div class="row">
+  <div class="col-4-md">
+    <p> Edit this Option </p>
+  </div>
+  <div class="col-md-8">
+    <%= form_for [@option.category, @option] do |f| %>
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control', placeholder: "Enter option title" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :body %>
+        <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter option discription" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :website %>
+        <%= f.text_field :website, class: 'form-control', placeholder: "Enter URL" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "Save", class: 'btn btn-success' %>
+      </div>
+    <% end %>
+  </div>
+</div>
