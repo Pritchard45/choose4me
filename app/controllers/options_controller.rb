@@ -9,6 +9,9 @@ class OptionsController < ApplicationController
     @option = Option.new
   end
 
+
+
+
   def create
     @option = Option.new
     @option.title = params[:option][:title]

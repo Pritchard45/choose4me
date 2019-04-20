@@ -9,6 +9,9 @@
         </ul>
       </div>
       <div class="col-md-4">
+        <%= @option.category_id %>
+
+          <%= link_to "Choose 4 ME!", category_option_path(@option.category_id, random_option(@option.category)), class: 'btn btn-success'%>
           <%= link_to "Edit", edit_category_option_path(@option.category, @option), class: 'btn btn-success' %>
           <%= link_to "Delete Option", [@option.category, @option], method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this option?' } %>
       </div>
