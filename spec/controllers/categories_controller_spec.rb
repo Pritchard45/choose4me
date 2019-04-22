@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe CategoriesController, type: :controller do
-  let(:my_category) { Category.create!(title: "Random")}
+  let(:my_user) { User.create!(email: "example@example.com", password: "helloworld" )}
+  let(:my_category) { my_user.categories.create!(title: "Random", user: my_user)}
 
   describe "GET #index" do
     it "returns http success" do
@@ -53,17 +54,17 @@ RSpec.describe CategoriesController, type: :controller do
   end
 
   describe "POST create" do
-    it "increases the number of Post by 1" do
-      expect{ post :create, params: { category: { title: "Rando" } } }.to change(Category,:count).by(1)
+    it "increases the number of Categories by 1" do
+      expect{ post :create, params: { category_id: my_category.id, category: { title: "Rando", user: my_user} } }.to change(Category,:count).by(1)
     end
 
     it "assigns the new category to @category" do
-      post :create, params: { category: { title: "Rando" } }
-      expect(assigns(:category)).to eq Category.last
+      post :create, params: { category: { title: "Rando"} }
+      expect(assigns(:my_category)).to eq Category.last
     end
 
     it "redirects to the new category" do
-      post :create, params: { category: { title: "Rando" } }
+      post :create, params: { category_id: my_category.id, category: { title: "Rando", user: my_user } }
       expect(response).to redirect_to Category.last
     end
   end

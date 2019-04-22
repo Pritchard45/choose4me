@@ -6,11 +6,11 @@ RSpec.describe Option, type: :model do
   let(:body) { "About" }
   let(:website) { "example.com" }
 
-
-  let(:category) { Category.create!(title: "New Category")}
+  let(:user) { User.create!(email: "example@example.com", password: "helloworld" )}
+  let(:category) { Category.create!(title: "New Category", user: user)}
   let(:option) { category.options.create!(title: "New Option", body: 'About', website: "example.com")}
 
-  
+
 
 
 

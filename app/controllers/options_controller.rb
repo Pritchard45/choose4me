@@ -13,13 +13,14 @@ class OptionsController < ApplicationController
 
 
   def create
-    @option = Option.new
-    @option.title = params[:option][:title]
-    @option.body = params[:option][:body]
-    @option.website = params[:option][:website]
+  #  @option = Option.new
+  #  @option.title = params[:option][:title]
+  #  @option.body = params[:option][:body]
+  #  @option.website = params[:option][:website]
     @category = Category.find(params[:category_id])
+    @option = @category.options.build(option_params)
 
-    @option.category = @category
+    # @option.category = @category
 
     if @option.save
       flash[:notice] = "Option added."
@@ -36,9 +37,10 @@ class OptionsController < ApplicationController
 
   def update
     @option = Option.find(params[:id])
-    @option.title = params[:option][:title]
-    @option.body = params[:option][:body]
-    @option.website = params[:option][:website]
+    # @option.title = params[:option][:title]
+    # @option.body = params[:option][:body]
+    # #@option.website = params[:option][:website]
+    @option.assign_attributes(option_params)
 
     if @option.save
       flash[:notice] = "Option was updated."
@@ -59,5 +61,11 @@ class OptionsController < ApplicationController
       flash.now[:alert] = "There was an error deleting option"
       render :show
     end
+  end
+
+
+  private
+  def option_params
+    params.require(:option).permit(:title, :body, :website)
   end
 end

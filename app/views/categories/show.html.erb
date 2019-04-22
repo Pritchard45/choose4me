@@ -4,7 +4,12 @@
    <%= link_to "Add Option", new_category_option_path(@category), class: 'btn btn-success' %>
    <%= link_to "Edit", edit_category_path(@category), class: 'btn btn-success' %>
    <%= link_to "Delete Category", @category, method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this category_instance?'} %>
-   <%= link_to "Choose 4 ME!", category_option_path(@category, random_option(@category)), class: 'btn btn-success'%>
+
+   <% if @category.options.any? %>
+    <%= link_to "Choose 4 ME!", category_option_path(@category, random_option(@category)), class: 'btn btn-success'%>
+  <% else %>
+    <p> Add some options! </p>
+    <% end %>
  </div>
 
  <div class="row">

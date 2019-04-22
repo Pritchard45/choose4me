@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe OptionsController, type: :controller do
-  let(:my_category) { Category.create!(title: "new")}
+  let(:my_user) { User.create!(email: "example@example.com", password: "helloworld" )}
+  let(:my_category) { Category.create!(title: "new", user: my_user)}
   let(:my_option) {my_category.options.create!(title: "Choose", body: "Info", website: "example.com") }
 
 
