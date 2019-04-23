@@ -5,5 +5,8 @@ module OptionsHelper
 
   end
 
+  def actual_option(category)
+    category.options.pluck(:id)
+  end
 
 end
