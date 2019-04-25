@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_22_233329) do
+ActiveRecord::Schema.define(version: 2019_04_24_232142) do
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 2019_04_22_233329) do
     t.boolean "public", default: true
     t.integer "user_id"
     t.index ["user_id"], name: "index_categories_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_favorites_on_category_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "options", force: :cascade do |t|

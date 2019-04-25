@@ -19,7 +19,7 @@ class OptionsController < ApplicationController
   #  @option.website = params[:option][:website]
     @category = Category.find(params[:category_id])
     @option = @category.options.build(option_params)
-    @option.user = current_user
+    #@option.user = current_user
 
     #@option.category = @category
 
