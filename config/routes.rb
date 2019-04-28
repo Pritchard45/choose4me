@@ -1,13 +1,20 @@
 Rails.application.routes.draw do
 
 
+  get 'users/show'
   devise_for :users
+  resources :users, only: [:show]
+
+  resources :users, only: [] do
+      resources :categories, only: [:show]
+
+  end
   resources :categories do
     resources :options, except: [:index]
   end
 
   resources :categories, only: [] do
-    resources :favorites, only: [:create, :destroy]
+    resources :favorites, only: [:index, :create, :destroy]
   end
 
   resources :options, only: [] do

@@ -1,5 +1,8 @@
 class FavoritesController < ApplicationController
 
+  def index
+    @favorite = current_user.favorites.all
+  end
 
   def create
     category = Category.find(params[:category_id])
