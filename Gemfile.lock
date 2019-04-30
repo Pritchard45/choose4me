@@ -79,6 +79,8 @@ GEM
     faraday_middleware (0.13.1)
       faraday (>= 0.7.4, < 1.0)
     ffi (1.10.0)
+    figaro (1.0.0)
+      thor (~> 0.14)
     frontend-generators (0.2.0)
       rainbow (= 2.0.0)
       turf (= 0.0.5)
@@ -233,12 +235,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   bootsnap (>= 1.1.0)
   bootstrap-sass
   byebug
   coffee-rails (~> 4.2)
   devise
   faker
+  figaro (= 1.0)
   frontend-generators
   jbuilder (~> 2.5)
   jquery-rails
