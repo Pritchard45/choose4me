@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
+gem 'pg', '~> 0.18.4'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -62,3 +63,4 @@ gem 'faker'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'frontend-generators'
+gem 'yelp', require: 'yelp'
