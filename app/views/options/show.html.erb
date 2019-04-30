@@ -1,33 +1,35 @@
-  <div>
-    <h1><%= @option.title %></h1> <br>
-    <div class="vote-arrow pull-left">
-      <%= render partial: 'votes/voting', locals: { option: @option } %>
-    </div>
-  </div>
-
-  <div class="col-md-4">
-    <%= link_to "Choose 4 ME!", category_option_path(@option.category_id, random_option(@option.category)), class: 'btn btn-success'%>
-    <%= link_to "Edit", edit_category_option_path(@option.category, @option), class: 'btn btn-success' %>
-    <%= link_to "Delete Option", [@option.category, @option], method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this option?' } %>
-    <h3>
-      <%= pluralize(@option.points, 'point') %>
-    <div>
-      <small>
-        <%= pluralize(@option.up_votes, 'up vote') %>,
-        <%= pluralize(@option.down_votes, 'down vote') %>
-      </small>
-      </div>
-    </h3>
-  </div>
 
 
+            <div>
+              <h1><%= @option.title %></h1> <br>
+              <div class="vote-arrow pull-left">
+                <%= render partial: 'votes/voting', locals: { option: @option } %>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <%= link_to "Choose 4 ME!", category_option_path(@option.category_id, random_option(@option.category)), class: 'btn btn-success'%>
+              <%= link_to "Edit", edit_category_option_path(@option.category, @option), class: 'btn btn-success' %>
+              <%= link_to "Delete Option", [@option.category, @option], method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this option?' } %>
+              <h3>
+                <%= pluralize(@option.points, 'point') %>
+              <div>
+                <small>
+                  <%= pluralize(@option.up_votes, 'up vote') %>,
+                  <%= pluralize(@option.down_votes, 'down vote') %>
+                </small>
+                </div>
+              </h3>
+            </div>
+
+          
 
 
-  <div class= "row">
-      <div class="cold-md-8 ">
-        <ul>
-            <li><%= @option.body %></li>
-            <li><%= @option.website %></li>
-        </ul>
-      </div>
-  </div>
+            <div class= "row">
+                <div class="cold-md-8 ">
+                  <ul>
+                      <li><%= @option.body %></li>
+                      <li><%= @option.website %></li>
+                  </ul>
+                </div>
+            </div>

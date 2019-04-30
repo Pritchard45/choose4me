@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  get 'creatives/index'
 
   get 'users/show'
   devise_for :users

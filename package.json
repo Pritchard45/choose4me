@@ -1,5 +1,7 @@
 {
   "name": "choose4me",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "startbootstrap-creative": "^5.1.4"
+  }
 }
