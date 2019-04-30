@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_04_24_232142) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
@@ -22,8 +25,8 @@ ActiveRecord::Schema.define(version: 2019_04_24_232142) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "category_id"
+    t.bigint "user_id"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_favorites_on_category_id"
@@ -33,7 +36,7 @@ ActiveRecord::Schema.define(version: 2019_04_24_232142) do
   create_table "options", force: :cascade do |t|
     t.string "title"
     t.text "body"
-    t.integer "category_id"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "website"
@@ -54,12 +57,17 @@ ActiveRecord::Schema.define(version: 2019_04_24_232142) do
 
   create_table "votes", force: :cascade do |t|
     t.integer "value"
-    t.integer "user_id"
-    t.integer "option_id"
+    t.bigint "user_id"
+    t.bigint "option_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["option_id"], name: "index_votes_on_option_id"
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
+  add_foreign_key "favorites", "categories"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "options", "categories"
+  add_foreign_key "votes", "options"
+  add_foreign_key "votes", "users"
 end
