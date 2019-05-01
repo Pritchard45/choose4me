@@ -1,20 +1,11 @@
 require 'faker'
 
-# default categories
-5.times do
-  User.create!(
-    email: Faker::Internet.email,
-    password: Faker::Internet.password
-  )
-end
-users = User.all
 
-1.times do
-  User.create!(
-    email: "zander.pritchard@gmail.com",
-    password: "helloworld"
-  )
-end
+# default categories
+#end
+#users = User.all
+
+
 
 1.times do
   Category.create!(
